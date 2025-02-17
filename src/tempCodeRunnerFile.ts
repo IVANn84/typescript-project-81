@@ -1,0 +1,1 @@
+console.log(new Tag('img', { src: 'path/to/image' }));

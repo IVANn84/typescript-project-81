@@ -30,9 +30,5 @@ class Tag {
   }
 }
 
-// console.log(new Tag('img', { src: 'path/to/image' }));
-// const res = new Tag('img', { src: 'path/to/image' });
-// console.log(res.generateHtml());
-
-const imgTag = new Tag('img', { src: 'image.jpg' });
-console.log(imgTag.generateHtml()); // <img src="image.jpg" alt="My Image" />
+const res = new Tag('br');
+console.log(res.generateHtml());

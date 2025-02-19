@@ -11,7 +11,7 @@ start:
 	npm run start
 
 test:
-	npm run test
+	npm test
 
 lint:
 	npm run lint

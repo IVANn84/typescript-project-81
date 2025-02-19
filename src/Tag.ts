@@ -1,6 +1,4 @@
-import { JsxFlags } from 'typescript';
-
-class Tag {
+export default class Tag {
   constructor(
     private tagName: string,
     private attributes: Record<string, string> = {},
@@ -11,7 +9,7 @@ class Tag {
     this.content = content;
   }
 
-  private isSelfClosingTag(tagName: string): boolean {
+  static isSelfClosingTag(tagName: string): boolean {
     const selfClosingTags = ['img', 'br', 'hr', 'input', 'meta', 'link'];
     return selfClosingTags.includes(tagName);
   }
@@ -21,14 +19,15 @@ class Tag {
       .map(([key, value]) => `${key}="${value}"`)
       .join(' ');
 
-    if (this.isSelfClosingTag(this.tagName)) {
-      return `<${this.tagName}${attrs ? ' ' + attrs : ''} />`;
+    if (Tag.isSelfClosingTag(this.tagName)) {
+      return `<${this.tagName}${attrs ? ` ${attrs}` : ''} />`;
     }
-    return `<${this.tagName}${attrs ? ' ' + attrs : ''}>${this.content}</${
+    return `<${this.tagName}${attrs ? ` ${attrs}` : ''}>${this.content}</${
       this.tagName
     }>`;
   }
 }
 
-const res = new Tag('br');
-console.log(res.generateHtml());
+// const res = new Tag('img');
+// eslint-disable-next-line no-console
+// console.log(res.generateHtml());

@@ -15,3 +15,6 @@ test:
 
 lint:
 	npm run lint
+
+publish:
+	npm publish --dry-run

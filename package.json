@@ -1,17 +1,30 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
+  "type": "module",
   "description": "ts_project",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf ./dist && tsc",
+    "start:dev": "npx nodemon",
+    "start:dev-experimental": "node --watch --loader=ts-node/esm ./src/index.ts",
+    "start": "npm run build && node dist/index.js",
+    "exec": "npx ts-node ./src/index.ts",
+    "lint": "npx eslint .",
+    "test": "vitest",
+    "test-coverage": "npx vitest run --coverage"
   },
   "author": "Ivan Khristenko",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.7.3"
-  },
-  "dependencies": {
-    "ts-node": "^10.9.2"
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.5.4"
   }
 }

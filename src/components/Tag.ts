@@ -1,8 +1,8 @@
 export default class Tag {
   constructor(
-    private tagName: string,
-    private attributes: Record<string, string> = {},
-    private content: string = ''
+    public tagName: string,
+    public attributes: Record<string, string> = {},
+    public content: string = ''
   ) {
     this.tagName = tagName;
     this.attributes = attributes;
@@ -27,7 +27,3 @@ export default class Tag {
     }>`;
   }
 }
-
-// const res = new Tag('img');
-// eslint-disable-next-line no-console
-// console.log(res.generateHtml());

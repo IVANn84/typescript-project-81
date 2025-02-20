@@ -1,1 +1,0 @@
-console.log(createTag('input', { type: 'submit', value: 'Save' }));

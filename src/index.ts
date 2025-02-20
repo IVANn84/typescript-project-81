@@ -1,11 +1,13 @@
-import Tag from './Tag';
+import { Template, Url } from 'src/types/sharedTypes';
+import Tag from './components/Tag';
+import HtmlForm from './components/HtmlForm';
 
-const createTag = (name: string, data: Record<string, string>) => {
-  const tag = new Tag('div', data);
+export const createTag = (name: string, attributes: Record<string, string>) => {
+  const tag = new Tag(name, attributes);
   return tag.generateHtml();
 };
 
-// eslint-disable-next-line no-console
-console.log(createTag('input', { type: 'submit', value: 'Save' }));
-
-export default createTag;
+export const createForm = (template: Template, url: Url) => {
+  const form = new HtmlForm(template, url);
+  return form.formFor(template, url);
+};

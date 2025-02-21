@@ -1,4 +1,3 @@
-import { Template, Url } from 'src/types/sharedTypes';
 import Tag from './components/Tag';
 import HtmlForm from './components/HtmlForm';
 
@@ -7,7 +6,10 @@ export const createTag = (name: string, attributes: Record<string, string>) => {
   return tag.generateHtml();
 };
 
-export const createForm = (template: Template, url: Url) => {
-  const form = new HtmlForm(template, url);
-  return form.formFor(template, url);
+export const createForm = (
+  template: Record<string, string>,
+  props: Record<string, string>
+) => {
+  const form = new HtmlForm(template, props);
+  return form.formFor();
 };
